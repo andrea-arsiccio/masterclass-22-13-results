@@ -1,0 +1,87 @@
++++ Loading the PLUMED kernel runtime +++
++++ PLUMED_KERNEL="/home/andrea/miniconda3/envs/plumed-masterclass-2022/lib/libplumedKernel.so" +++
+PLUMED: PLUMED is starting
+PLUMED: Version: 2.8.0 (git: ddb59d16b) compiled on May 17 2022 at 19:07:56
+PLUMED: Please cite these papers when using PLUMED [1][2]
+PLUMED: For further information see the PLUMED web page at http://www.plumed.org
+PLUMED: Root: /home/andrea/miniconda3/envs/plumed-masterclass-2022/lib/plumed
+PLUMED: For installed feature, see /home/andrea/miniconda3/envs/plumed-masterclass-2022/lib/plumed/src/config/config.txt
+PLUMED: Molecular dynamics engine: amber
+PLUMED: Precision of reals: 8
+PLUMED: Running over 1 node
+PLUMED: Number of threads: 1
+PLUMED: Cache line size: 512
+PLUMED: Number of atoms: 174
+PLUMED: File suffix: 
+PLUMED: FILE: plumed.dat
+PLUMED: Action MOLINFO
+PLUMED:   with label @0
+PLUMED:   pdb file named aaqaa_min.pdb contains 1 chains 
+PLUMED:   chain named   contains residues 1 to 15 and atoms 1 to 174 
+PLUMED: Action GYRATION
+PLUMED:   with label rgyr
+PLUMED:   GYRATION RADIUS (Rg);
+PLUMED:   atoms involved : 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47 48 49 50 51 52 53 54 55 56 57 58 59 60 61 62 63 64 65 66 67 68 69 70 71 72 73 74 75 76 77 78 79 80 81 82 83 84 85 86 87 88 89 90 91 92 93 94 95 96 97 98 99 100 101 102 103 104 105 106 107 108 109 110 111 112 113 114 115 116 117 118 119 120 121 122 123 124 125 126 127 128 129 130 131 132 133 134 135 136 137 138 139 140 141 142 143 144 145 146 147 148 149 150 151 152 153 154 155 156 157 158 159 160 161 162 163 164 165 166 167 168 169 170 171 172 173 174 
+PLUMED:   broken molecules will be rebuilt assuming atoms are in the proper order
+PLUMED: Action ANTIBETARMSD
+PLUMED:   with label ab
+PLUMED:   distances from secondary structure elements are calculated using DRMSD algorithm
+PLUMED:   Bibliography [3]
+PLUMED:   ignoring contributions from strands that are more than 1.000000 apart
+PLUMED:   examining all possible secondary structure combinations
+PLUMED:   added component to this action:  ab.lessthan 
+PLUMED:   value ab.lessthan is obtained by taking the 1th component and finding the number of values less than 0.08.  Using rational switching function with parameters d0=0 nn=8 mm=12
+PLUMED: Action PARABETARMSD
+PLUMED:   with label pb
+PLUMED:   distances from secondary structure elements are calculated using DRMSD algorithm
+PLUMED:   Bibliography [3]
+PLUMED:   ignoring contributions from strands that are more than 1.000000 apart
+PLUMED:   examining all possible secondary structure combinations
+PLUMED:   added component to this action:  pb.lessthan 
+PLUMED:   value pb.lessthan is obtained by taking the 1th component and finding the number of values less than 0.08.  Using rational switching function with parameters d0=0 nn=8 mm=12
+PLUMED: Action ALPHARMSD
+PLUMED:   with label alfa
+PLUMED:   distances from secondary structure elements are calculated using DRMSD algorithm
+PLUMED:   Bibliography [3]
+PLUMED:   examining all possible secondary structure combinations
+PLUMED:   added component to this action:  alfa.lessthan 
+PLUMED:   value alfa.lessthan is obtained by taking the 1th component and finding the number of values less than 0.08.  Using rational switching function with parameters d0=0 nn=8 mm=12
+PLUMED: Action SASA_HASEL
+PLUMED:   with label sasar
+PLUMED:   TRANSFER MODEL;  atoms involved : 
+PLUMED: 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 
+PLUMED: 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47 48 49 50 
+PLUMED: 51 52 53 54 55 56 57 58 59 60 61 62 63 64 65 66 67 68 69 70 71 72 73 74 75 
+PLUMED: 76 77 78 79 80 81 82 83 84 85 86 87 88 89 90 91 92 93 94 95 96 97 98 99 100 
+PLUMED: 101 102 103 104 105 106 107 108 109 110 111 112 113 114 115 116 117 118 119 120 121 122 123 124 125 
+PLUMED: 126 127 128 129 130 131 132 133 134 135 136 137 138 139 140 141 142 143 144 145 146 147 148 149 150 
+PLUMED: 151 152 153 154 155 156 157 158 159 160 161 162 163 164 165 166 167 168 169 170 171 172 173 174 
+PLUMED:   broken molecules will be rebuilt assuming atoms are in the proper order
+PLUMED: Action BIASVALUE
+PLUMED:   with label bias
+PLUMED:   with arguments sasar
+PLUMED:   added component to this action:  bias.bias 
+PLUMED:   added component to this action:  bias.sasar_bias 
+PLUMED: Action PRINT
+PLUMED:   with label @7
+PLUMED:   with stride 1000
+PLUMED:   with arguments rgyr ab.lessthan pb.lessthan alfa.lessthan sasar bias.bias bias.sasar_bias
+PLUMED:   on file COLVAR
+PLUMED:   with format  %f
+PLUMED: END FILE: plumed.dat
+PLUMED: Timestep: 0.002000
+PLUMED: KbT: 2.893415
+PLUMED: Relevant bibliography:
+PLUMED:   [1] The PLUMED consortium, Nat. Methods 16, 670 (2019)
+PLUMED:   [2] Tribello, Bonomi, Branduardi, Camilloni, and Bussi, Comput. Phys. Commun. 185, 604 (2014)
+PLUMED:   [3] Pietrucci and Laio, J. Chem. Theory Comput. 5, 2197 (2009)
+PLUMED: Please read and cite where appropriate!
+PLUMED: Finished setup
+PLUMED:                                               Cycles        Total      Average      Minimum      Maximum
+PLUMED:                                                    1   988.284097   988.284097   988.284097   988.284097
+PLUMED: 1 Prepare dependencies                       2500001     1.288155     0.000001     0.000000     0.000297
+PLUMED: 2 Sharing data                               2500001     4.076453     0.000002     0.000001     0.000301
+PLUMED: 3 Waiting for data                           2500001     0.778768     0.000000     0.000000     0.000254
+PLUMED: 4 Calculating (forward loop)                 2500001   959.726294     0.000384     0.000230     0.003120
+PLUMED: 5 Applying (backward loop)                   2500001     8.454276     0.000003     0.000003     0.000316
+PLUMED: 6 Update                                     2500001     0.625167     0.000000     0.000000     0.000240
